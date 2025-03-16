@@ -12,5 +12,16 @@ public class ContaCorrente extends Conta {
 		super.imprimirInfosComuns();
 		
 	}
+
+	@Override
+	public void pagarFatura(double valor) {
+		if (valor > saldo) {
+			System.out.println("Valor da fatura maior que o limite da conta.");
+			return;
+		}
+		
+		saldo -= valor;
+		System.out.println("Fatura paga com sucesso.");
+	}
 	
 }

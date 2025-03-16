@@ -12,6 +12,11 @@ public class ContaPoupanca extends Conta {
 		super.imprimirInfosComuns();
 	}
 
+	@Override
+	public void pagarFatura(double valor) {
+		System.out.println("Operação não permitida para conta poupança.");		
+	}
+
 	
 	
 

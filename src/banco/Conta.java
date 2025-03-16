@@ -15,7 +15,7 @@ public abstract class Conta implements IConta {
 	public Conta(Cliente cliente) {
 		this.agencia = Conta.AGENCIA_PADRAO;
 		this.numero = SEQUENCIAL++;
-		this.cliente = cliente;
+		this.setCliente(cliente);
 	}
 	
 	
@@ -37,8 +37,11 @@ public abstract class Conta implements IConta {
 		
 	}
 	
+	
+	
+	
 	protected void imprimirInfosComuns() {
-		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
+		System.out.println(String.format("Titular: %s", this.getCliente().getNome()));
 		System.out.println(String.format("Agência: %d", this.agencia));
 		System.out.println(String.format("Número: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
@@ -69,6 +72,18 @@ public abstract class Conta implements IConta {
 
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
+	}
+
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 
